@@ -1,4 +1,4 @@
-AI Incident Assistant (GenAI Support Project)
+##AI Incident Assistant (GenAI Support Project)
 
 ## Overview
 
@@ -63,4 +63,5 @@ AIOps fundamentals
 ## Author
 
 AJ-Application Support Analyst transitioning into AI-enabled Support and AIOps
+
 
