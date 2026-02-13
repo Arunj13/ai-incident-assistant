@@ -1,0 +1,56 @@
+### Incident Overview  
+**FACT:** Date: **Feb 2026**; System: **Internal Payment Portal**; Issue: **Users unable to submit payments**; Error observed: **504 Gateway Timeout**.  
+**FACT:** Incident start time **09:20 AM**, end time **11:10 AM**; duration **1 hour 50 minutes**.  
+**FACT:** Resolution recorded as **Restarted backend service**.  
+**FACT:** **High CPU usage observed** during the incident.
+
+**INFERENCE:** The restart of the backend service coincided with restoration of payment submission functionality. *(Confidence: Medium — temporal correlation only.)*
+
+---
+
+### Impact Assessment  
+**FACT:** **Approx 800 users** affected.  
+**FACT:** Payment submission functionality returned 504 Gateway Timeout responses while the incident was active.  
+**INFERENCE:** Business impact included interruption of payment processing for affected users during the incident window. *(Confidence: High — direct consequence of users unable to submit payments.)*
+
+---
+
+### Probable Root Cause  
+**FACT:** High CPU usage was observed; backend service was restarted.  
+**ROOT-CAUSE STATEMENT:** **Root cause cannot be determined from available data.**  
+**INFERENCE:** High CPU usage is a plausible contributing factor but a definitive causal link is not provided in the incident data. *(Confidence: Medium for the inference; High for the statement that root cause cannot be determined from available data.)*
+
+---
+
+### Resolution Summary  
+**FACT:** At **11:10 AM** the backend service was restarted (documented as the resolution action).  
+**FACT:** Service availability for payment submissions was restored after the restart.  
+**INFERENCE:** The restart removed the immediate symptom (timeouts); whether it addressed an underlying fault is not known. *(Confidence: Medium.)*
+
+---
+
+### Risk Rating  
+**High** — based strictly on the described impact (payment failures affecting ~800 users and interruption of financial transaction capability).
+
+---
+
+### KPIs to Monitor  
+1. **Backend CPU Utilization (5‑minute average)** — measurable percentage; recommended target \< 70%. *(Rationale: direct observation of high CPU during incident.)*  
+2. **Payment Submission Success Rate (per minute)** — measurable as successful payment responses ÷ total payment attempts; recommended target ≥ 99.9%.
+
+---
+
+### Alert Threshold Recommendation  
+**Trigger an alert when:** **average backend CPU utilization > 80% for 5 continuous minutes AND payment submission success rate < 99.5% in the same 5‑minute window.**  
+**Rationale:** Combines resource pressure with functional degradation to reduce false positives and prompt investigation before broad user impact.
+
+---
+
+### Confidence Level (summary)  
+- **Facts reported above:** **High** (directly stated in incident data).  
+- **Inferences (e.g., CPU as contributing factor; restart correlation):** **Medium** (logical inference from observed correlation but not proven).  
+- **Root cause determination:** **High** confidence that it **cannot** be determined from the available data.
+
+---
+
+If you want, I can convert the KPIs and alert threshold into monitoring dashboard queries (example metric names and time windows) using only the facts above.
