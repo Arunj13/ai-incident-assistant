@@ -64,5 +64,10 @@ AIOps fundamentals
 
 AJ-Application Support Analyst transitioning into AI-enabled Support and AIOps
 
+## Future Enhancements
+- Add severity classification model
+- Integrate with ServiceNow API
+- Add automated log summarization
+- Convert to Streamlit web app
 
 
